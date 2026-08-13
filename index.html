@@ -37,10 +37,11 @@
   .nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; }
   .mark {
     font-family: Georgia, serif; text-decoration: none; color: var(--ink);
-    display: inline-flex; align-items: center; gap: 0.85rem;
-    font-size: 1.02rem; letter-spacing: 0.22em;
+    display: inline-flex; flex-direction: column; line-height: 1;
   }
-  .mark svg { border-radius: 8px; border: 1px solid var(--line); }
+  .mark .m1 { font-size: 1.35rem; letter-spacing: 0.28em; }
+  .mark .mrule { width: 74px; height: 2px; background: var(--accent); margin: 0.42rem 0 0.4rem 0.05rem; }
+  .mark .m2 { font-size: 0.6rem; letter-spacing: 0.5em; color: var(--muted); }
   .nav-links { display: flex; gap: 1.8rem; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
   .nav-links a:hover { color: var(--ink); }
@@ -121,7 +122,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="mark" href="#" aria-label="PACT Atelier"><svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="18" fill="#171512"/><text x="50" y="60" font-size="52" text-anchor="middle" fill="#e8e4dc" font-family="Georgia,serif">P</text><rect x="30" y="72" width="40" height="6" fill="#c98a5e"/></svg>PACT ATELIER</a>
+    <a class="mark" href="#" aria-label="PACT Atelier"><span class="m1">PACT</span><span class="mrule"></span><span class="m2">ATELIER</span></a>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
