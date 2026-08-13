@@ -72,7 +72,7 @@
     font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 1.6rem;
   }
-  .hero-logo { margin-bottom: 2.2rem; border-radius: 22px; box-shadow: 0 14px 40px -16px rgba(0,0,0,0.4); }
+  .hero-logo { margin-bottom: 2.2rem; border-radius: 22px; border: 1px solid var(--line); box-shadow: 0 14px 40px -16px rgba(0,0,0,0.4); }
   h1 {
     font-family: Georgia, serif; font-weight: 400;
     font-size: clamp(2.3rem, 5.2vw, 3.7rem);
@@ -161,7 +161,7 @@
     <form class="subscribe" action="https://formsubmit.co/hello@pactatelier.com" method="POST">
       <input type="hidden" name="_subject" value="New course notifications signup">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://pactatelier.com/?subscribed=1">
+      <input type="hidden" name="_next" value="http://pactatelier.com/?subscribed=1">
       <input type="text" name="_honey" style="display:none">
       <input class="field email-in" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
       <button class="btn" type="submit">Get notified about new courses</button>
@@ -200,7 +200,7 @@
           <form class="contact-form" action="https://formsubmit.co/hello@pactatelier.com" method="POST">
             <input type="hidden" name="_subject" value="Website contact">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://pactatelier.com/?sent=1#contact">
+            <input type="hidden" name="_next" value="http://pactatelier.com/?sent=1#contact">
             <input type="text" name="_honey" style="display:none">
             <input class="field" type="text" name="name" placeholder="Your name" aria-label="Your name">
             <input class="field" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
