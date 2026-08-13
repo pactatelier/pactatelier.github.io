@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PACT Atelier</title>
+<meta name="description" content="PACT Atelier builds hands-on courses. Practical Applied Concepts and Training: you learn by doing the actual work.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231a1a1a'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23e8e4dc' font-family='Georgia,serif'>P</text></svg>">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --ink: #1a1a1a;
+    --muted: #6b675f;
+    --line: #d8d3c8;
+    --accent: #8a4b2d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171512;
+      --ink: #e8e4dc;
+      --muted: #a39d92;
+      --line: #37332c;
+      --accent: #c98a5e;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.65;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+  .mark {
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 1.75rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  p { color: var(--muted); margin-bottom: 1.1rem; font-size: 1.02rem; }
+  p.status {
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line); }
+  a:hover { border-bottom-color: var(--accent); }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">PACT Atelier</div>
+  <h1>Courses where you <em>do the actual work</em></h1>
+  <p>PACT stands for Practical Applied Concepts and Training. An atelier was a craftsman's workshop. Apprentices learned the trade there by working on real commissions, mistakes included, until the skill was theirs.</p>
+  <p>We build courses the same way. Real material, realistic conditions, and the failures left in, because that is where most of the learning happens.</p>
+  <p class="status">The first course is in production now. Write to <a href="mailto:hello@pactatelier.com">hello@pactatelier.com</a> if you want to hear when it ships.</p>
+</main>
+<footer>&copy; 2026 PACT Atelier</footer>
+</body>
+</html>
