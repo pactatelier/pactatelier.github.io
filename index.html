@@ -77,24 +77,34 @@
   }
   h1 {
     font-family: Georgia, serif; font-weight: 400;
-    font-size: clamp(2.5rem, 6.5vw, 4.4rem);
-    line-height: 1.12; letter-spacing: -0.01em;
-    max-width: 17ch;
+    font-size: clamp(2.3rem, 5.2vw, 3.7rem);
+    line-height: 1.14; letter-spacing: -0.01em;
   }
-  h1 em { font-style: italic; color: var(--accent); }
+  h1 em { font-style: italic; color: var(--accent); white-space: nowrap; }
   .hero p {
     margin-top: 1.9rem; max-width: 46ch;
     font-size: 1.13rem; color: var(--muted);
   }
   .cta-row { margin-top: 2.6rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
   .btn {
-    display: inline-block; text-decoration: none;
+    display: inline-block; text-decoration: none; border: 0; cursor: pointer;
     background: var(--ink); color: var(--bg);
     padding: 0.85rem 1.7rem; border-radius: 3px;
     font-size: 0.95rem; letter-spacing: 0.02em;
   }
   .btn:hover { background: var(--accent); color: #fff; }
   .cta-note { font-size: 0.88rem; color: var(--muted); }
+  .subscribe {
+    margin-top: 2.6rem; display: flex; gap: 0.7rem;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .email-in {
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 3px;
+    padding: 0.85rem 1.1rem; font-size: 0.95rem; min-width: 250px;
+  }
+  .email-in:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  .subscribe-done { margin-top: 2.6rem; color: var(--accent); font-size: 1.02rem; }
 
   .rule { border: 0; border-top: 1px solid var(--line); }
 
@@ -181,10 +191,15 @@
     <div class="kicker">Practical Applied Concepts &amp; Training</div>
     <h1>Learn what matters <em>in real work</em></h1>
     <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
-    <div class="cta-row">
-      <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
-      <span class="cta-note">First course ships September 2026.</span>
-    </div>
+    <form class="subscribe" action="https://formsubmit.co/hello@pactatelier.com" method="POST">
+      <input type="hidden" name="_subject" value="Launch list signup">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://pactatelier.com/?subscribed=1">
+      <input type="text" name="_honey" style="display:none">
+      <input class="email-in" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+      <button class="btn" type="submit">Get notified at launch</button>
+    </form>
+    <p class="subscribe-done" hidden>You're on the list. We'll write when it ships.</p>
   </div>
 
   <div class="wrap"><hr class="rule"></div>
@@ -240,6 +255,15 @@
     </div>
   </section>
 </main>
+
+<script>
+  if (new URLSearchParams(location.search).has('subscribed')) {
+    var f = document.querySelector('.subscribe');
+    var d = document.querySelector('.subscribe-done');
+    if (f && d) { f.hidden = true; d.hidden = false; }
+    history.replaceState(null, '', '/');
+  }
+</script>
 
 <footer>
   <div class="wrap foot">
