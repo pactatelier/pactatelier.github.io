@@ -63,7 +63,34 @@
   }
   .nav-links a:hover { color: var(--ink); }
 
-  .hero { padding: 7rem 0 5.5rem; }
+  .hero {
+    padding: 6.5rem 0 5.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .hero-visual { display: flex; justify-content: center; }
+  .pa-block {
+    aspect-ratio: 1; width: min(360px, 100%);
+    background: var(--ink); color: var(--bg);
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 1.4rem;
+    font-family: Georgia, serif; font-size: 7.5rem; line-height: 1;
+    box-shadow: 0 18px 50px -18px rgba(0,0,0,0.35);
+  }
+  .pa-block .rule-accent {
+    width: 88px; height: 7px; background: var(--accent); border-radius: 2px;
+  }
+  .pa-block small {
+    font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--muted); font-family: -apple-system, sans-serif;
+  }
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+  }
   .kicker {
     font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 1.6rem;
@@ -114,9 +141,12 @@
 
   .course-card {
     background: var(--card); border: 1px solid var(--line); border-radius: 6px;
-    padding: 2.6rem; max-width: 44rem;
+    padding: 2.8rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, auto);
+    gap: 2.5rem; align-items: start;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
+  @media (max-width: 700px) { .course-card { grid-template-columns: 1fr; } }
   .badge {
     display: inline-block; font-size: 0.74rem; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--accent);
@@ -168,12 +198,21 @@
 
 <main>
   <div class="wrap hero">
-    <div class="kicker">Practical Applied Concepts &amp; Training</div>
-    <h1>Learn what matters <em>in real work</em></h1>
-    <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
-    <div class="cta-row">
-      <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
-      <span class="cta-note">First course ships September 2026.</span>
+    <div>
+      <div class="kicker">Practical Applied Concepts &amp; Training</div>
+      <h1>Learn what matters <em>in real work</em></h1>
+      <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
+        <span class="cta-note">First course ships September 2026.</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pa-block">
+        <span>PA</span>
+        <div class="rule-accent"></div>
+        <small>Est. 2026</small>
+      </div>
     </div>
   </div>
 
@@ -206,10 +245,12 @@
     <div class="wrap">
       <div class="sec-label">Courses</div>
       <div class="course-card">
-        <span class="badge">In production</span>
-        <h3 class="serif">Claude Code on Real Codebases: Work in Code You Didn't Write</h3>
-        <p class="sub">AI coding assistants are easy on a fresh project and hard on the large, inherited codebase you actually maintain. This course teaches the second one: onboarding unfamiliar code, catching the assistant's failures before they merge, and shipping verified changes.</p>
-        <div class="course-meta">
+        <div>
+          <span class="badge">In production</span>
+          <h3 class="serif">Claude Code on Real Codebases: Work in Code You Didn't Write</h3>
+          <p class="sub">AI coding assistants are easy on a fresh project and hard on the large, inherited codebase you actually maintain. This course teaches the second one: onboarding unfamiliar code, catching the assistant's failures before they merge, and shipping verified changes.</p>
+        </div>
+        <div class="course-meta" style="flex-direction: column; gap: 0.9rem; border-top: 0; border-left: 1px solid var(--line); padding: 0.2rem 0 0.2rem 1.8rem; margin-top: 0;">
           <span>For working developers</span>
           <span>Built on a real open source project</span>
           <span>September 2026</span>
