@@ -64,33 +64,13 @@
   .nav-links a:hover { color: var(--ink); }
 
   .hero {
-    padding: 6.5rem 0 5.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 3.5rem;
-    align-items: center;
+    padding: 7.5rem 0 6rem;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
   }
-  .hero-visual { display: flex; justify-content: center; }
-  .pa-block {
-    aspect-ratio: 1; width: min(360px, 100%);
-    background: var(--ink); color: var(--bg);
-    border-radius: 10px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 1.4rem;
-    font-family: Georgia, serif; font-size: 7.5rem; line-height: 1;
-    box-shadow: 0 18px 50px -18px rgba(0,0,0,0.35);
-  }
-  .pa-block .rule-accent {
-    width: 88px; height: 7px; background: var(--accent); border-radius: 2px;
-  }
-  .pa-block small {
-    font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--muted); font-family: -apple-system, sans-serif;
-  }
-  @media (max-width: 800px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-  }
+  .hero h1 { max-width: 22ch; }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .cta-row { justify-content: center; }
   .kicker {
     font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 1.6rem;
@@ -198,21 +178,12 @@
 
 <main>
   <div class="wrap hero">
-    <div>
-      <div class="kicker">Practical Applied Concepts &amp; Training</div>
-      <h1>Learn what matters <em>in real work</em></h1>
-      <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
-      <div class="cta-row">
-        <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
-        <span class="cta-note">First course ships September 2026.</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="pa-block">
-        <span>PA</span>
-        <div class="rule-accent"></div>
-        <small>Est. 2026</small>
-      </div>
+    <div class="kicker">Practical Applied Concepts &amp; Training</div>
+    <h1>Learn what matters <em>in real work</em></h1>
+    <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
+      <span class="cta-note">First course ships September 2026.</span>
     </div>
   </div>
 
@@ -264,6 +235,7 @@
       <div class="sec-label">About</div>
       <p class="lead">PACT stands for Practical Applied Concepts and Training.</p>
       <p>We are a small studio making courses for people who want skills they can use at work, in the job they already have. The test we hold every lecture to is simple: does this survive contact with a real task on a normal day.</p>
+      <p>The method comes from experience, not theory. Our courses are built by engineers who have spent years shipping and maintaining software that runs on millions of websites, where code you didn't write is the everyday reality and mistakes have consequences.</p>
       <p>Questions, or a topic you want taught this way? Write to <a href="mailto:hello@pactatelier.com" style="color:var(--accent); text-decoration:none;">hello@pactatelier.com</a>.</p>
     </div>
   </section>
