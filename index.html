@@ -3,84 +3,237 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PACT Atelier</title>
-<meta name="description" content="PACT Atelier builds hands-on courses. Practical Applied Concepts and Training: you learn by doing the actual work.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231a1a1a'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23e8e4dc' font-family='Georgia,serif'>P</text></svg>">
+<title>PACT Atelier — Learn what matters in real work</title>
+<meta name="description" content="PACT Atelier builds hands-on courses where you work on real material, with the failures left in. Practical Applied Concepts and Training.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23171512'/><text x='50' y='66' font-size='44' text-anchor='middle' fill='%23e8e4dc' font-family='Georgia,serif'>PA</text></svg>">
 <style>
   :root {
     --bg: #faf8f4;
-    --ink: #1a1a1a;
+    --bg2: #f1ede4;
+    --ink: #1d1a16;
     --muted: #6b675f;
-    --line: #d8d3c8;
+    --line: #ddd7ca;
     --accent: #8a4b2d;
+    --accent-soft: #b3552b12;
+    --card: #ffffff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #171512;
-      --ink: #e8e4dc;
+      --bg2: #1e1b17;
+      --ink: #ece8e0;
       --muted: #a39d92;
       --line: #37332c;
-      --accent: #c98a5e;
+      --accent: #d29468;
+      --accent-soft: #d2946814;
+      --card: #201d18;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.65;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 34rem;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
+  .serif { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 0;
   }
   .mark {
-    font-size: 0.85rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
+    font-family: Georgia, serif;
+    font-size: 1.05rem; letter-spacing: 0.16em; text-transform: uppercase;
+    text-decoration: none; color: var(--ink);
+  }
+  .mark b { color: var(--accent); font-weight: 400; }
+  .nav-links { display: flex; gap: 1.8rem; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 0.92rem;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .hero { padding: 7rem 0 5.5rem; }
+  .kicker {
+    font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.6rem;
   }
   h1 {
-    font-size: clamp(1.9rem, 5vw, 2.6rem);
-    font-weight: 400;
-    line-height: 1.25;
-    margin-bottom: 1.75rem;
+    font-family: Georgia, serif; font-weight: 400;
+    font-size: clamp(2.5rem, 6.5vw, 4.4rem);
+    line-height: 1.12; letter-spacing: -0.01em;
+    max-width: 17ch;
   }
   h1 em { font-style: italic; color: var(--accent); }
-  p { color: var(--muted); margin-bottom: 1.1rem; font-size: 1.02rem; }
-  p.status {
-    margin-top: 2.25rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line);
-    font-size: 0.95rem;
+  .hero p {
+    margin-top: 1.9rem; max-width: 46ch;
+    font-size: 1.13rem; color: var(--muted);
   }
-  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line); }
-  a:hover { border-bottom-color: var(--accent); }
+  .cta-row { margin-top: 2.6rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: var(--ink); color: var(--bg);
+    padding: 0.85rem 1.7rem; border-radius: 3px;
+    font-size: 0.95rem; letter-spacing: 0.02em;
+  }
+  .btn:hover { background: var(--accent); color: #fff; }
+  .cta-note { font-size: 0.88rem; color: var(--muted); }
+
+  .rule { border: 0; border-top: 1px solid var(--line); }
+
+  section { padding: 5rem 0; }
+  .sec-label {
+    font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 2.6rem;
+  }
+  .method-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.6rem;
+  }
+  .method-item .num {
+    font-family: Georgia, serif; font-size: 2.6rem; color: var(--accent);
+    line-height: 1; margin-bottom: 0.9rem;
+  }
+  .method-item h3 {
+    font-family: Georgia, serif; font-weight: 400; font-size: 1.35rem;
+    margin-bottom: 0.7rem;
+  }
+  .method-item p { color: var(--muted); font-size: 0.98rem; }
+
+  .alt { background: var(--bg2); }
+
+  .course-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 2.6rem; max-width: 44rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .badge {
+    display: inline-block; font-size: 0.74rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-soft); border: 1px solid var(--line);
+    padding: 0.3rem 0.75rem; border-radius: 100px; margin-bottom: 1.3rem;
+  }
+  .course-card h3 {
+    font-family: Georgia, serif; font-weight: 400; font-size: 1.7rem; line-height: 1.3;
+  }
+  .course-card .sub { color: var(--muted); margin-top: 0.9rem; }
+  .course-meta {
+    margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+    display: flex; gap: 1.8rem; flex-wrap: wrap;
+    font-size: 0.88rem; color: var(--muted);
+  }
+
+  .about p { max-width: 58ch; color: var(--muted); font-size: 1.05rem; }
+  .about p + p { margin-top: 1.1rem; }
+  .about .lead { color: var(--ink); font-size: 1.2rem; font-family: Georgia, serif; }
+
   footer {
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 0.8rem;
-    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding: 2.4rem 0 3rem; font-size: 0.88rem; color: var(--muted);
+  }
+  .foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .hero { padding: 4.5rem 0 4rem; }
+    section { padding: 3.5rem 0; }
+    .course-card { padding: 1.8rem; }
+    .nav-links { gap: 1.1rem; }
   }
 </style>
 </head>
 <body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#">PACT <b>Atelier</b></a>
+    <nav class="nav-links">
+      <a href="#method">The method</a>
+      <a href="#courses">Courses</a>
+      <a href="mailto:hello@pactatelier.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-  <div class="mark">PACT Atelier</div>
-  <h1>Learn what matters <em>in real work</em></h1>
-  <p>PACT stands for Practical Applied Concepts and Training. An atelier was a craftsman's workshop. Apprentices learned the trade there by working on real commissions, mistakes included, until the skill was theirs.</p>
-  <p>We build courses the same way. Real material, realistic conditions, and the failures left in, because that is where most of the learning happens.</p>
-  <p class="status">The first course is in production now. Write to <a href="mailto:hello@pactatelier.com">hello@pactatelier.com</a> if you want to hear when it ships.</p>
+  <div class="wrap hero">
+    <div class="kicker">Practical Applied Concepts &amp; Training</div>
+    <h1>Learn what matters <em>in real work</em></h1>
+    <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:hello@pactatelier.com?subject=Notify%20me%20at%20launch">Get notified at launch</a>
+      <span class="cta-note">First course ships September 2026.</span>
+    </div>
+  </div>
+
+  <div class="wrap"><hr class="rule"></div>
+
+  <section id="method">
+    <div class="wrap">
+      <div class="sec-label">How an atelier works</div>
+      <div class="method-grid">
+        <div class="method-item">
+          <div class="num">1</div>
+          <h3>Real material</h3>
+          <p>An atelier was a craftsman's workshop. Apprentices learned on live commissions, not exercises. Our courses use production-scale projects with real history and real constraints.</p>
+        </div>
+        <div class="method-item">
+          <div class="num">2</div>
+          <h3>Failures left in</h3>
+          <p>Things go wrong in real work, so they go wrong on camera too. You watch problems get diagnosed and fixed instead of edited out, and you learn to recover rather than to follow along.</p>
+        </div>
+        <div class="method-item">
+          <div class="num">3</div>
+          <h3>Theory on demand</h3>
+          <p>Concepts show up when a task needs them, at the depth the task needs. Nothing is taught in the abstract just to make a course longer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="courses">
+    <div class="wrap">
+      <div class="sec-label">Courses</div>
+      <div class="course-card">
+        <span class="badge">In production</span>
+        <h3 class="serif">Claude Code on Real Codebases: Work in Code You Didn't Write</h3>
+        <p class="sub">AI coding assistants are easy on a fresh project and hard on the large, inherited codebase you actually maintain. This course teaches the second one: onboarding unfamiliar code, catching the assistant's failures before they merge, and shipping verified changes.</p>
+        <div class="course-meta">
+          <span>For working developers</span>
+          <span>Built on a real open source project</span>
+          <span>September 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="sec-label">About</div>
+      <p class="lead">PACT stands for Practical Applied Concepts and Training.</p>
+      <p>We are a small studio making courses for people who want skills they can use at work, in the job they already have. The test we hold every lecture to is simple: does this survive contact with a real task on a normal day.</p>
+      <p>Questions, or a topic you want taught this way? Write to <a href="mailto:hello@pactatelier.com" style="color:var(--accent); text-decoration:none;">hello@pactatelier.com</a>.</p>
+    </div>
+  </section>
 </main>
-<footer>&copy; 2026 PACT Atelier</footer>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 PACT Atelier</span>
+    <span><a href="mailto:hello@pactatelier.com">hello@pactatelier.com</a></span>
+  </div>
+</footer>
+
 </body>
 </html>
