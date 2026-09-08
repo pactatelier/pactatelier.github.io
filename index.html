@@ -141,15 +141,6 @@
     <div class="kicker">Practical Applied Concepts &amp; Training</div>
     <h1>Learn what matters in <em>real work</em></h1>
     <p>Most courses show you a demo that was built to go smoothly. We teach on real material under realistic conditions, and we leave the failures in, because that is where most of the learning happens.</p>
-    <form class="subscribe" action="https://formsubmit.co/hello@pactatelier.com" method="POST">
-      <input type="hidden" name="_subject" value="New course notifications signup">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="http://pactatelier.com/?subscribed=1">
-      <input type="text" name="_honey" style="display:none">
-      <input class="field email-in" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
-      <button class="btn" type="submit">Get notified about new courses</button>
-    </form>
-    <p class="subscribe-done" hidden>You're on the list. We'll write when there's something worth your time.</p>
   </div>
 
   <section class="alt" id="about">
@@ -173,26 +164,9 @@
   <section id="contact">
     <div class="wrap">
       <div class="sec-label">Contact</div>
-      <div class="two-col">
-        <div class="col">
-          <h3>Write to us</h3>
-          <p>A question, a topic you want taught this way, or something we got wrong. We read everything and reply to most of it.</p>
-          <p>Prefer email? <a href="mailto:hello@pactatelier.com" style="color:var(--accent); text-decoration:none;">hello@pactatelier.com</a></p>
-        </div>
-        <div class="col">
-          <form class="contact-form" action="https://formsubmit.co/hello@pactatelier.com" method="POST">
-            <input type="hidden" name="_subject" value="Website contact">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="http://pactatelier.com/?sent=1#contact">
-            <input type="text" name="_honey" style="display:none">
-            <input class="field" type="text" name="name" placeholder="Your name" aria-label="Your name">
-            <input class="field" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
-            <textarea class="field" name="message" placeholder="What's on your mind?" required aria-label="Message"></textarea>
-            <button class="btn" type="submit">Send message</button>
-          </form>
-          <p class="form-done" hidden>Got it. We'll get back to you.</p>
-        </div>
-      </div>
+      <h3>Write to us</h3>
+      <p>A question, a topic you want taught this way, or something we got wrong. We read everything and reply to most of it.</p>
+      <p><a href="mailto:contact@pactatelier.com" style="color:var(--accent); text-decoration:none;">contact@pactatelier.com</a></p>
     </div>
   </section>
 </main>
@@ -200,23 +174,10 @@
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 PACT Atelier</span>
-    <span><a href="mailto:hello@pactatelier.com">hello@pactatelier.com</a></span>
+    <span><a href="mailto:contact@pactatelier.com">contact@pactatelier.com</a></span>
   </div>
 </footer>
 
-<script>
-  var q = new URLSearchParams(location.search);
-  if (q.has('subscribed')) {
-    var f = document.querySelector('.subscribe'), d = document.querySelector('.subscribe-done');
-    if (f && d) { f.hidden = true; d.hidden = false; }
-    history.replaceState(null, '', '/');
-  }
-  if (q.has('sent')) {
-    var cf = document.querySelector('.contact-form'), cd = document.querySelector('.form-done');
-    if (cf && cd) { cf.hidden = true; cd.hidden = false; }
-    history.replaceState(null, '', '/#contact');
-  }
-</script>
 
 </body>
 </html>
